@@ -22,4 +22,7 @@ switch (_packetType) {
     case PACKET_TYPE.SHUTDOWN:
         NetworkExecuteDisconnectClient();
         break;
+    case PACKET_TYPE.DRAWING:
+        NetworkExecuteDrawingReceive(_Buffer);
+        break;
 }

@@ -1,6 +1,7 @@
 ///NetworkExecuteServerData();
 
 var _Buffer = async_load[? "buffer"];
+print(buffer_get_size(_Buffer));
 buffer_seek(_Buffer, buffer_seek_start, 0);
 var _packetTarget = buffer_read(_Buffer, buffer_u8);
 var _packetSubtype = buffer_read(_Buffer, buffer_u8);
@@ -10,6 +11,9 @@ if _packetTarget != PACKET_TARGET.SERVER {
 }
 
 switch (_packetSubtype) {
+    case PACKET_TYPE.DRAWING:
+        NetworkExecuteDrawingBroadcast(_Buffer);
+        break;
     case PACKET_TYPE.CHAT:
         NetworkExecuteChatBroadcast(_Buffer);
         break;

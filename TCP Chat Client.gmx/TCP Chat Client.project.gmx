@@ -3,14 +3,21 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <NewExtensions/>
+  <NewExtensions>
+    <extension index="0">extensions\buffer_getpixel</extension>
+  </NewExtensions>
   <sounds name="sound">
     <sounds name="UI">
       <sound>sound\sndChat</sound>
       <sound>sound\sndNotification</sound>
     </sounds>
   </sounds>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\sprPixel</sprite>
+    <sprite>sprites\curPaint</sprite>
+    <sprite>sprites\sprArrow</sprite>
+    <sprite>sprites\sprButton</sprite>
+  </sprites>
   <backgrounds name="background">
     <background>background\tlFloor</background>
   </backgrounds>
@@ -33,6 +40,7 @@
       <script>scripts\draw_text_parameters.gml</script>
       <script>scripts\ds_grid_clear_row.gml</script>
       <script>scripts\ds_grid_delete_row.gml</script>
+      <script>scripts\file_return_string.gml</script>
       <script>scripts\fs.gml</script>
       <script>scripts\instance_place_list.gml</script>
       <script>scripts\particle_bake_surface.gml</script>
@@ -88,7 +96,9 @@
       <scripts name="Execute">
         <script>scripts\NetworkExecuteAddClient.gml</script>
         <script>scripts\NetworkExecuteChatBroadcast.gml</script>
+        <script>scripts\NetworkExecuteDrawingBroadcast.gml</script>
         <script>scripts\NetworkExecuteChatReceive.gml</script>
+        <script>scripts\NetworkExecuteDrawingReceive.gml</script>
         <script>scripts\NetworkExecuteClientData.gml</script>
         <script>scripts\NetworkExecuteClientRemove.gml</script>
         <script>scripts\NetworkExecuteConnectClient.gml</script>
@@ -117,10 +127,21 @@
         <script>scripts\NetworkSendPacketTCP.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\ArtistCheckMouseOver.gml</script>
+    <script>scripts\DrawingExecuteFormat.gml</script>
+    <script>scripts\README.gml</script>
+    <script>scripts\buffer_getpixel_begin.gml</script>
+    <script>scripts\buffer_getpixel.gml</script>
+    <script>scripts\buffer_getpixel_ext.gml</script>
+    <script>scripts\buffer_getpixel_r.gml</script>
+    <script>scripts\buffer_getpixel_g.gml</script>
+    <script>scripts\buffer_getpixel_b.gml</script>
+    <script>scripts\buffer_getpixel_a.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fontChat</font>
     <font>fonts\fontMenu</font>
+    <font>fonts\fontSignature</font>
   </fonts>
   <objects name="objects">
     <objects name="Networking">
@@ -131,11 +152,14 @@
     <object>objects\objInit</object>
     <object>objects\objMenu</object>
     <object>objects\objSplatter</object>
+    <object>objects\objArtist</object>
+    <object>objects\objButton</object>
+    <object>objects\objButtonSend</object>
+    <object>objects\objCamera</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomInit</room>
     <room>rooms\roomMenu</room>
-    <room>rooms\roomConnecting</room>
     <room>rooms\roomLobby</room>
   </rooms>
   <constants number="9">
